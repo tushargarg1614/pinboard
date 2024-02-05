@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>clone</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b7ec714129.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link  rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body   class=" bg-[#262B37] text-white body box-border">   
+    <!-- bg-white text-black -->
+    <%if(nav===true){%>
+      <div class="header w-full z-50 fixed max-h-20 px-5 bg-[#262B37] text-white flex justify-between  text-sm  capitalize">
+        <h3 class="m-5 ">pinterest clone project</h3>
+        <div class="flex  m-5">
+          <p class="text-sm">light mode</p>
+          <input id="checkbox" type="checkbox">
+        </div>
+        <div class="searchUser  relative m-3 ">
+          <input type="text" id="srch-user" placeholder=  "search username" class="rounded-3xl w-96 h-10 text-black pl-5">
+          <i id="cross" class="fa-solid fa-circle-xmark fa-lg absolute mt-5 right-3" style="color: #04253e; visibility: hidden;"></i>
+        </div>
+          <a  class="my-5  hover:text-blue-300 link  hover:border-b-2" href="profile">profile</a>
+          <a class="my-5 hover:text-blue-300 link hover:border-b-2" href="feed">feed</a>
+          <a class="bg-red-700 btn hover:bg-white hover:text-red-700 m-5 text-white text-xs rounded-lg h-6 w-12 box-border p-1" href="logout">logout</a>
+        </div>
+        <div class="srchAreaContainer flex justify-center">
+        <div style="visibility: hidden;" class="searchSpace hover:border-b-2  py-24 flex flex-col gap-3  w-96 min-h-80 ml-20 text-black  bg-slate-200 fixed  rounded-3xl">
+         <!-- <div class="user hover:bg-slate-300  w-full gap-2 h-12 ">
+          <div class="prof-card flex gap-2 ml-5">
+          <img src="https://i.pinimg.com/474x/9e/72/17/9e7217d984d2d0894dc355416c30a7b9.jpg" alt="" class="object-cover border-red-700 border-2 bg-black h-12 w-12 rounded-full">
+          <div class="user-detail flex flex-col ">
+          <p class="userFullName text-md capitalize font-bold ">full name</p>
+          <p class="userName text-sm font-thin"> username</p>
+          </div>
+          </div>
+
+         </div> -->
+         </div>
+         
+        </div>
+        <%}%>
+        
+
+<script src="/javascripts/header.js">
+  
+</script>
+
+   

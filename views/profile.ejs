@@ -1,0 +1,56 @@
+<%include ./partials/header.ejs%>
+<div class="main-container w-full  p-14 pt-20 ">
+    <form class="dp-img" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" class="hidden"name="prof-img">
+    </form>
+
+ <!-- profile details   -->
+    <div class="prof-details w-full h-auto flex flex-col items-center gap-2">
+        <div class="prof-img w-28 h-28 pr-2 bg-slate-400 rounded-full bg-cover bg-center flex justify-end items-end bg-[url(/images/uploads/<%=user.profileimage%>)]">
+            <div id="pencil" class="bg-slate-100 text-center rounded-full w-7 h-7  hover:bg-green-300"><i class="fa-solid fa-pen "  style="color: #111312;"></i></div>
+        </div>
+        <div class="fullname text-2xl"><%=user.fullname%></div>
+        <div class="username text-sm">@<%=user.username%></div>
+        <div class="description text-md"><%=user.description%></div>
+    <div class="btn flex gap-2">
+        <a  href="edit" class="  button text-white w-28 h-7 rounded-xl text-center px-2 py-1 text-sm">Edit</a>
+        <a  href="createPin" class="  button w-28 h-7 text-white  rounded-xl text-center  px-2 py-1 text-sm">Create Pin</a>
+    </div>
+    <div class="flex gap-5 text white">
+        <p class=" border-b-4 h-9 cursor-pointer text-sm mt-5">Created</p>
+        <a href="saved" class=" h-9 text-sm mt-5">Saved</a>
+    </div>
+    </div>
+
+<!-- pins container -->
+<div class="post-container w-full h-full flex gap-10 mt-5 flex-wrap ">
+ <%if(user.posts.length>0){%>
+    <div class="card  max-w-48">
+        <div class="card-img overflow-hidden relative w-48 h-32  rounded-lg bg-[url()]">
+            <a class="hover:text-sky-400 absolute font-bold px-5 py-20 text-3xl " href="showPins"><%=user.posts.length%> pin</a>
+            <a class="" href="showPins">
+                <img class=" object-cover object-center opacity-55 hover:opacity-40" src="/images/uploads/<%=user.posts[0].image%>" alt="">
+            </a>
+                
+            </div>
+            <div class="card-caption font-bold text-sm cursor-pointer "> 
+                <a href="showPins">You Created <%=user.posts.length%> Pin</a> 
+            </div>
+        </div>
+    <%}%>
+  
+   
+
+</div>
+</div>
+<script>
+    var dpInput=document.querySelector(".dp-img")
+document.querySelector('#pencil').addEventListener('click',function(){
+    document.querySelector(".dp-img input").click()
+
+})
+document.querySelector(".dp-img input").addEventListener('change',function(){
+    dpInput.submit()
+})
+</script>
+<%include ./partials/footer.ejs%>

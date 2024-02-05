@@ -1,0 +1,20 @@
+<%include ./partials/header.ejs%>
+<div class="form  py-16 px-24 pt-28 capitalize ">
+    <form  class="flex flex-col w-96 h-auto gap-7" action="/createPin" method="post" enctype="multipart/form-data">
+    <div class="image">
+        <p>choose an image </p>
+        <input class="" type="file" placeholder="choose file" name="image"  >
+    </div>
+    <div class="title ">
+        <p>title</p>
+        <input type="text" placeholder="title of your post" class="w-96 h-10 text-lg bg-transparent border-2 text-black" name="title">
+    </div>
+    <div class="description ">
+        <p>description</p>
+        <textarea type="text" placeholder="enter a note" rows="5"  class="w-96 h-36 resize-none text-white bg-transparent border-2" name="description" ></textarea>
+    </div>
+       <input class="bg-red-700 rounded-lg w-36 text-white" type="submit" value="upload"  >
+    </form>
+    
+</div>
+<%include ./partials/footer.ejs%>

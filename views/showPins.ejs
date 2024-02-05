@@ -1,0 +1,19 @@
+<%include ./partials/header.ejs%>
+<div class=" text-center font-bold text-xl pt-20 capitalize"><h1>your created pins </h1></div>
+<div class="post-container w-full h-full flex gap-10 mt-5 flex-wrap p-12 ">
+    <%for(let i=user.posts.length-1;i>=0;i--){
+        const post=user.posts[i]%>
+        <div class="card bg-white text-black rounded-lg overflow-hidden h-auto max-w-64">
+            <div class="card-img overflow-hidden  bg-cover w-64 h-80 bg-[url(/images/uploads/<%=post.image%>)]">
+                <img src="" alt="">
+            </div>
+            <div class="card-caption p-1">
+                <p class="font-semibold"><%=post.title%></p>
+                <div class="description text-sm p-1">
+                    <p><%=post.description%></p>
+                </div>
+            </div>
+          </div><%}%>
+      
+    </div>
+<%include ./partials/footer.ejs%>

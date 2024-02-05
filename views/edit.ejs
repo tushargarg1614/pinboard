@@ -1,0 +1,22 @@
+<%include ./partials/header.ejs%>
+<div class="container  w-full h-lvh pt- flex justify-center  items-center">
+    <form action="/updatedetails" method="post" id="edit-form" class="rounded-xl  flex flex-col items-start px-10 py-5 capitalize w-96 h-96 bg-transparent">
+        
+       <div class="heading font-bold text-2xl"> <p>edit profile</p><hr></div>
+        <div class="new-fullname pt-7">
+            <p class="text-sm">name</p>
+            <input class="border-b-black w-96 h-10 text-md bg-transparent border-2"  id="name"  type="text" value="<%=user.fullname%>" name="fullname">
+        </div>
+        <div class="new-username pt-7">
+            <p class="text-sm">user name</p>
+            <input class="border-b-black w-96 h-10 text-md bg-transparent border-2" id="username" type="text" value="<%=user.username%>" name="username">
+        </div>
+        <div class="new-fullname pt-7">
+            <p class="text-sm">description</p>
+            <textarea rows="5" class="border-b-black w-96 bg-transparent  text-md border-2 resize-none" id="description" type="text" value="<%=user.description%>" name="description"></textarea>
+        </div>
+        <input class="mt-4 p-1 w-36 rounded-lg  border-spacing-x-2 text-xs border-black items-end bg-red-800 text-white" value="save changes" type="submit">
+    </form>
+</div>
+
+<%include ./partials/footer.ejs%>

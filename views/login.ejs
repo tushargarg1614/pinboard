@@ -1,0 +1,36 @@
+<%include ./partials/header.ejs%>
+
+<div class="main w-full h-lvh flex  items-center justify-center font-sans capitalize bg-contain bg-opacity-95  bg-[url(https://i.pinimg.com/474x/e4/0d/dc/e40ddcef5a6dd104e8f64c6d0f05d576.jpg)]">
+    <div class="register bg-white text-black bg w-[350px] h-[450px] rounded-lg flex items-center flex-col py-5 px-2 ">
+     <div>
+        <i class="fa-brands fa-pinterest fa-2xl "style="color: #ed0713;"></i>
+     </div >
+       <h1 class="font-bold text-2xl">wellcome to pinterest </h1>
+       <p class="text-sm">find new ideas to try</p>
+     
+    <form action="/login" method="post">
+    <div class="userdetail flex flex-col items-center text-sm   mb-5">
+     
+        <div class='mt-10 detailinput'>
+            <%if(error.length>0){%>
+                <p class="text-red-700 font-semibold text-sm mt-"><%=error%></p><%} %>
+            <p >username</p>
+        <input type="text" placeholder="username" name="username" class=" rounded-md border-2 border-black w-52  px-3 h-9">
+        </div>
+            <div class='mt-5 detailinput'>
+                <p>password</p>
+        <input type="password" placeholder="enter password" name="password" class=" rounded-md border-2 border-black w-52  px-3 h-9">
+            </div>
+
+            <button type="submit" class="w-52 h-9 bg-sky-800 p-2 text-white rounded-full text-center mt-3">login</button>
+    </form>
+        <p class="text-xs mt-2">dont have an account?
+        <a class="font-bold" href="/">signup?</a></p>
+        <p class="text-xs mt-3 opacity-65">By continuing, you agree to Pinterest's
+             <br> Terms of Service and acknowledge you've read our 
+            <br>Privacy Policy . Notice at collection</p>
+    </div>
+    </div>
+
+</div>
+<%include ./partials/footer.ejs%>

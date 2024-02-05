@@ -1,0 +1,88 @@
+<%include ./partials/header.ejs%>
+<form action="/clickedUser" method="post" id="userForm">
+    <input type="hidden" class="usernameInput" name="username">
+</form>
+<div class="main-container">
+<div class="container pt-24 capitalize">
+   <div class="heading text-center text-xl ">pinterest feeds</div>
+   <div class="post-container w-full h-full flex gap-5 mt-5 flex-wrap py-12 pl-10">
+    <%for(let i=allPosts.length-1;i>=0;i--){
+        const post=allPosts[i]%>
+        <div class="card bg-white rounded-3xl border-2 text-white overflow-hidden  max-w-96">
+        
+            <div  class=" card-img hover:opacity-80   overflow-hidden pb-5 flex justify-center items-end bg-cover w-96 h-96  bg-[url(/images/uploads/<%=post.image%>)]"data-image="<%=post.image%>">
+                <img class=" object-cover" src="" alt="">
+                <div class="postDetail  text-center font-bold ">
+                    <form class="form" action="/savePin" method="post">
+                        <input type="text" class="image hidden" name="image">
+                        <input type="submit" style="visibility: hidden;" class=" w-24 save-btn mb-10 opacity-100 text-sm border-2  rounded-full h-10 bg-red-800 text-white" value="save">
+                    </form>
+                    <p class="text-3xl "><%=post.title%></p>
+                    <p class="text-xl mt-5"><%=post.description%></p>
+
+                </div>
+            </div>
+            <div class="card-caption p-1">
+                <div class="username text-black text-lg font-bold p-1">
+                    <p id="username-link" class="text-xs cursor-pointer hover:text-zinc-500"><%=post.user.username%></p>
+                   
+                </div>
+            </div>
+          </div><%}%>
+
+          <script>
+            var userForm = document.querySelector("#userForm")
+            var userInput=document.querySelector('.usernameInput')
+           var user= document.querySelectorAll('#username-link')
+           user.forEach(ele => {
+            ele.addEventListener('click',function(){
+            //    userInput.value= this.innerHTML
+            clickedUser=this.innerHTML
+            console.log(clickedUser)
+               
+            //    userForm.submit()   
+            axios.post('/clickedUser',{username:clickedUser})
+            .then(function(res){
+                let loggedUser= res.data.username
+                if(loggedUser===clickedUser){
+                    return window.location.href="/profile"
+                }
+                 return window.location.href="/user"  
+            })
+            
+           })
+           }); 
+           
+           
+           var cardImg= document.querySelectorAll(".card-img")
+           var form=document.querySelectorAll(".form")
+           
+           
+           cardImg.forEach(function(img){
+               img.addEventListener("mouseover",function (){
+                   
+                   var button=this.querySelector('.save-btn')
+                   button.style.visibility="visible"
+                })
+            })
+            cardImg.forEach(function(img){
+                img.addEventListener("mouseout",
+                function(){
+                    var button=this.querySelector('.save-btn')
+                    button.style.visibility="hidden"
+                })
+            })
+            cardImg.forEach(function(img){
+                var image= img.querySelector(".image")
+              var fileName= img.getAttribute('data-image')
+              console.log(fileName)
+              image.value=fileName
+             
+
+           })
+           
+
+          </script>
+</div>
+</div>
+<%include ./partials/footer.ejs%>
